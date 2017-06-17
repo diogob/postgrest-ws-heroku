@@ -73,6 +73,7 @@ fi
 
 echo "-----> Restoring cached $BIN"
 cp -R $CACHE_DIR/$BIN $BUILD_DIR
+chmod +x $BUILD_DIR/$BIN
 
 echo "-----> Copying the config file builder"
 cp $BP_DIR/env-to-config $BUILD_DIR
