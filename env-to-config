@@ -5,16 +5,12 @@ CONF_PATH="$2"
 #available config options
 config_settings=(
   db-uri
-  db-schema
-  db-anon-role
   db-pool
+  server-root
   server-host
   server-port
-  server-proxy-url
   jwt-secret
   secret-is-base64
-  max-rows
-  pre-request
 )
 
 for conf in "${config_settings[@]}"; do
