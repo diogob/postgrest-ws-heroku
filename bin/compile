@@ -60,11 +60,11 @@ BIN="postgrest-ws"
 FILE="postgrest-ws-${POSTGRESTWS_VER}"
 
 if [ ! -e $CACHE_DIR/$BIN ]; then
-  BIN_URL="http://bin.begriffs.com/dbapi/heroku/${FILE}.tar.xz"
+  BIN_URL="https://s3-us-west-2.amazonaws.com/postgrest-ws/postgrest-ws.gz"
   if curl --output /dev/null --silent --head --fail $BIN_URL; then
     echo "-----> Downloading and caching POSTGRESTWS $POSTGRESTWS_VER binary"
     mkdir -p $CACHE_DIR
-    curl -# -L $BIN_URL | tar xJ -C $CACHE_DIR
+    curl -# -L $BIN_URL | gunzip > $CACHE_DIR/$BIN
   else
     echo "-----> Could not find prebuilt $BIN"
     exit 1
